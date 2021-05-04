@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedroom</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    #dark,
+    #button,
+    #room {
+        position: absolute;
+    }
+
+    #room {
+        width: 100vw;
+        height: 100vh;
+        background: url(bedroom.jpg);
+        background-size: cover;
+        background-position: center;
+        z-index: 1;
+    }
+
+    #dark {
+        width: 100vw;
+        height: 100vh;
+        background-color: black;
+        z-index: 2;
+        transition: all 2s ease;
+    }
+
+    #button {
+        width: 60px;
+        height: 60px;
+        border: 30px solid white;
+        z-index: 3;
+        border-radius: 50%;
+        box-sizing: border-box;
+        top: 10%;
+        left: 50%;
+        margin-left: -72px;
+        animation: switchOff 600ms linear infinite alternate;
+    }
+
+    #button:hover {
+        animation: none;
+    }
+
+    #button:hover+#dark {
+        background-color: transparent;
+    }
+
+    @keyframes switchOff {
+        from {
+            border: 0px solid white;
+            opacity: 0;
+        }
+
+        to {
+            border: 30px solid white;
+            opacity: 1;
+        }
+    }
+</style>
+
+<body>
+    <div id="room"></div>
+    <div id="button"></div>
+    <div id="dark"></div>
+</body>
+
+</html>
